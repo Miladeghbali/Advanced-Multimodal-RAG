@@ -1,0 +1,17 @@
+[
+  {
+    "question": "What is hybrid search?",
+    "expected_answer": "Hybrid search combines dense semantic vector retrieval with lexical retrieval such as BM25; Reciprocal Rank Fusion can combine the ranked results.",
+    "expected_keywords": ["Hybrid Search", "Vector Search", "BM25", "RRF"]
+  },
+  {
+    "question": "Why is MMR useful?",
+    "expected_answer": "MMR balances relevance and diversity, reducing redundant retrieved passages while keeping context relevant to the query.",
+    "expected_keywords": ["MMR", "diversity", "redundant"]
+  },
+  {
+    "question": "What does the re-ranker do?",
+    "expected_answer": "A Cross-Encoder re-ranker jointly scores the query and each candidate passage and reorders the candidates by relevance before generation.",
+    "expected_keywords": ["Re-Ranker", "Cross-Encoder", "relevance"]
+  }
+]

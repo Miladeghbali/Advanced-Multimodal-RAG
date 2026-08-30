@@ -1,0 +1,19 @@
+Retrieval-Augmented Generation (RAG) combines information retrieval with a language model. Instead of relying only on the model's internal parameters, RAG retrieves external passages and supplies them as context during generation.
+
+Dense vector search represents queries and passages as embeddings. It is useful for semantic matching, especially when the query and the document use different wording to express similar meaning.
+
+BM25 is a lexical retrieval algorithm. It scores documents based on query-term matches while accounting for term frequency and document length. BM25 is often strong for names, exact phrases, identifiers, and technical vocabulary.
+
+Hybrid search combines dense semantic retrieval with lexical retrieval such as BM25. One rank-based fusion method is Reciprocal Rank Fusion (RRF). RRF assigns each result a score based on its rank in each retriever and sums the contributions across retrievers.
+
+Maximum Marginal Relevance (MMR) balances relevance and diversity. It prefers passages related to the query while penalizing candidates that are too similar to passages already selected. This can reduce duplicated context.
+
+A re-ranker is a second-stage retrieval model. A Cross-Encoder receives the query and a candidate passage together, producing a relevance score for that specific pair. Re-ranking is more computationally expensive than first-stage retrieval, so it is usually applied only to a small candidate set.
+
+A common advanced RAG pipeline is: dense retrieval and BM25 retrieval, rank fusion, diversity selection with MMR, Cross-Encoder re-ranking, and then generation from the final context.
+
+Conversation memory is optional in a RAG system. It can preserve recent user and assistant messages so follow-up questions can be interpreted in context.
+
+Multimodal RAG extends the system beyond text. For example, a vision-capable language model can consider an uploaded image together with passages retrieved from documents.
+
+LangSmith can be used to trace RAG runs and evaluate components such as retrieval quality, answer groundedness, and end-to-end behavior. Evaluation is especially useful when comparing different chunk sizes, retrievers, MMR parameters, or re-rankers.
